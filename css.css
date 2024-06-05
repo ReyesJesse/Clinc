@@ -1,0 +1,721 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, #f0f0f0, #e0e0e0); /* Adjust colors as needed */
+    animation: fadeInAnimation 1s ease-in-out;
+    animation-fill-mode: forwards; /* Keeps the last keyframe after animation ends */
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#watermark {
+    position: absolute;
+    top: 300px; /* Adjust as needed */
+    right: 30px; /* Adjust as needed */
+    z-index: 10; /* Ensure it appears above other elements */
+    background-color: rgba(255, 255, 255, 0.7); /* White background with transparency */
+    border: 1px solid rgba(0, 0, 255, 0.7); /* Blue border with transparency */
+    padding: 10px;
+    font-family: Arial, sans-serif; /* Adjust font family as needed */
+    font-size: 14px; /* Adjust font size as needed */
+    color: #333; /* Text color */
+    line-height: 1.4; /* Adjust line height as needed */
+}
+
+header {
+    background: white;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 15px 20px;
+    background: linear-gradient(to bottom, rgba(169, 234, 245, 0.5), rgba(119, 201, 212, 0.1)); /* Transparent gradient colors */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+.logo img {
+    width: 300px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    padding: 0 20px;
+    position: relative;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    position: relative;
+font-weight: 100;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Sub-menu styles */
+.sub-menu {
+    position: absolute;
+    top: 100%; /* Position the sub-menu below the parent item */
+    left: 0;
+    width: 200px; /* Adjust width as needed */
+    background-color: whitesmoke;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease-in-out;
+    pointer-events: none; /* Ensure sub-menu doesn't intercept mouse events */
+    z-index: 1; /* Ensure sub-menu appears above other elements */
+    border-top: 0.5px solid transparent; /* Transparent border initially */
+}
+
+.sub-menu li {
+    padding: 10px;
+    text-align: left;
+    list-style: none; /* Remove bullet points */
+}
+
+.sub-menu a {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+/* Class to show sub-menu */
+.sub-menu.visible {
+    border-top: 2px solid #1e90ff; /* Blue border on top */
+
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Enable mouse events on visible sub-menu */
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .carousel-background::before {
+    content: "";
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(background.webp);
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+    opacity: 0.60; /* Adjust opacity to make the background barely visible */
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
+.carousel-background::after {
+    content: "";
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: -2; /* Ensure the pseudo-element is behind the content and image */
+}
+/* Main slide */
+.main-slide {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, rgba(169, 234, 245, 0.5), rgba(119, 201, 212, 0.1));
+    margin-bottom: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    display: flex;
+    align-items: center;
+  }
+  
+/* Main image inside main slide */
+.main-image {
+    width: auto;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: width 0.5s ease;
+  }
+  
+  /* Animation for main image */
+  .main-slide.animate .main-image {
+    width: 100%;
+  }
+  
+  /* Thumbnail container */
+  .thumbnail-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+  }
+  
+/* Thumbnail styles */
+.thumbnail {
+    width: 170px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    background: linear-gradient(to bottom, rgba(169, 234, 245, 0.5), rgba(119, 201, 212, 0.1));
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Hover effect for thumbnails */
+  .thumbnail:hover {
+    opacity: 1;
+  }
+  
+.main-slide:first-child .main-image {
+    width: 800px;
+}
+
+
+.company-description {
+    line-height: 25px;
+    width: 75%;
+    position: relative;
+    text-align: center;
+    top: -50px;
+    padding: 20px;
+    background-color: #a9eaf5;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add this line */
+}
+#label-section {
+    width: 50%; /* Take half of the section width */
+    padding: 15px 25px;
+    background-color: #ffffff;
+    margin: 30px 10px; /* Adjusted margin */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box; /* Include padding in the width calculation */
+    
+}
+
+#label-section .company-description {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#label-section .company-description p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #444;
+}
+
+#label-section .entreat-de-mas {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#label-section .entreat-de-mas h2 {
+    margin-bottom: 8px;
+    font-size: 1.4em;
+    color: #333;
+}
+
+#label-section .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Increased gap between icons */
+}
+
+#label-section .social-icons a {
+    font-size: 2em;
+    color: #444;
+    transition: color 0.3s;
+}
+
+#label-section .social-icons a:hover {
+    color: #0066cc;
+}
+
+/* WhatsApp icon */
+#label-section .social-icons .whatsapp-icon {
+    color: #25D366; /* WhatsApp color */
+}
+
+/* Instagram icon */
+#label-section .social-icons .instagram-icon {
+    color: #E4405F; /* Instagram color */
+}
+
+/* TikTok icon */
+#label-section .social-icons .tiktok-icon {
+    color: #1C9CEA; /* TikTok color */
+}
+
+/* YouTube icon */
+#label-section .social-icons .youtube-icon {
+    color: #FF0000; /* YouTube color */
+}
+
+#label-section .appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#label-section .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#label-section label {
+    font-weight: bold;
+    color: #444;
+}
+
+#label-section input, 
+#label-section select, 
+#label-section textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fafafa;
+    font-size: 1em;
+    color: #444;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#label-section input:focus, 
+#label-section select:focus, 
+#label-section textarea:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+
+#label-section button {
+    padding: 12px 25px;
+    border: none;
+    background-color: #0066cc;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    align-self: center;
+    transition: background-color 0.3s ease;
+}
+
+#label-section button:hover {
+    background-color: #005bb5;
+}
+
+.squares-container {
+    width: 45%;
+    float: right;
+    position: relative;
+    top: -50rem;
+    margin: auto;
+    margin-right: 20px; /* Added margin top for gap */
+    border-radius: 15px;
+}
+
+.square,
+.square1 {
+    border-radius: 15px;
+    height: 15vh;
+    font-size: 20px;
+    padding: 25px;
+    border: 1px solid #ddd; /* Light gray border */
+    background-color: #ffffff7e; /* White background color */
+    color: #333; /* Dark gray text color */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s ease;
+    text-align: center;
+    
+}
+
+.square:hover,
+.square1:hover {
+    background-color: #0066cc; /* Blue background color on hover */
+    color: #fff; /* White text color on hover */
+    border-color: #0056b3; /* Darker blue border color on hover */
+    transform: translateY(-5px); /* Lift the square on hover */
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2); /* Enhanced shadow effect on hover */
+}
+
+/* Styles for iPad screens (portrait and landscape) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: calc(100vh - 60px);
+        height: calc(100vh - 60px);
+        position: absolute;
+        top: -90px;
+        left: 0;
+        transition: all 0.5s ease;
+        background-color: whitesmoke;
+        margin: 0;
+        padding: 0;
+        z-index: 15;
+    }
+
+    .nav-links.nav-active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-top: 20px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        opacity: 0;
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .nav-links li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links li:nth-child(5) { animation-delay: 0.5s; }
+    .nav-links li:nth-child(6) { animation-delay: 0.6s; }
+    .nav-links li:nth-child(7) { animation-delay: 0.7s; }
+    .nav-links li:nth-child(8) { animation-delay: 0.8s; }
+    .nav-links li:nth-child(9) { animation-delay: 0.9s; }
+
+    .nav-links a {
+        font-size: 20px;
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    .burger {
+        display: block;
+        z-index: 15;
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: black;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Sub-menu styles */
+    .sub-menu {
+        position: static; /* Reset position for mobile */
+        display: none; /* Hide sub-menus initially */
+        width: 100%; /* Adjust width as needed */
+        box-shadow: none; /* Remove box-shadow on mobile */
+    }
+
+    .nav-links li:hover .sub-menu {
+        display: block; /* Show sub-menu on hover */
+    }
+
+    .sub-menu li {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .carousel {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .main-slide {
+        height: auto; /* Allow height to adjust based on content */
+        padding: 10px; /* Reduce padding for smaller screens */
+        margin-bottom: 0; /* Remove bottom margin for smaller screens */
+    }
+
+    .main-image {
+        height: 200px; /* Allow height to adjust based on content */
+        width: 200px; /* Ensure image fills its container */
+        max-width: 400px; /* Limit the width of the main image on smaller screens */
+        margin: 0 auto; /* Center the main image horizontally */
+    }
+
+    .thumbnail-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-template-rows: repeat(3, auto); /* 3 rows */
+        padding: 20px; /* Add padding for spacing */
+        justify-items: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+    }
+
+    .thumbnail {
+        width: 200px; /* Occupy full width of the column */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    /* Watermark adjustments for mobile */
+    #watermark {
+        width: 100px; /* Reduce size for mobile */
+        top: 100px; /* Adjust positioning */
+        right: 5px; /* Adjust positioning */
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #a9eaf5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#label-section {
+    width: 100%; /* Take full width on smaller screens */
+    margin: 15px 0; /* Adjusted margin for smaller screens */
+}
+
+.squares-container {
+    width: 100%;
+    margin-right: 0; /* Remove right margin on smaller screens */
+    top: initial; /* Remove top position */
+}
+
+.square,
+.square1 {
+    height: auto; /* Adjust height based on content */
+}
+
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: calc(100vh - 60px);
+        position: absolute;
+        top: -90px;
+        left: 0;
+        transition: all 0.5s ease;
+        background-color: whitesmoke;
+        margin: 0;
+        padding: 0;
+        z-index: 15;
+    }
+
+    .nav-links.nav-active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-top: 20px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        opacity: 0;
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .nav-links li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links li:nth-child(5) { animation-delay: 0.5s; }
+    .nav-links li:nth-child(6) { animation-delay: 0.6s; }
+    .nav-links li:nth-child(7) { animation-delay: 0.7s; }
+    .nav-links li:nth-child(8) { animation-delay: 0.8s; }
+    .nav-links li:nth-child(9) { animation-delay: 0.9s; }
+
+    .nav-links a {
+        font-size: 20px;
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    .burger {
+        display: block;
+        z-index: 15;
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: black;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Sub-menu styles */
+    .sub-menu {
+        position: static; /* Reset position for mobile */
+        display: none; /* Hide sub-menus initially */
+        width: 100%; /* Adjust width as needed */
+        box-shadow: none; /* Remove box-shadow on mobile */
+    }
+
+    .nav-links li:hover .sub-menu {
+        display: block; /* Show sub-menu on hover */
+    }
+
+    .sub-menu li {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .carousel {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .main-slide {
+        height: auto; /* Allow height to adjust based on content */
+        padding: 10px; /* Reduce padding for smaller screens */
+        margin-bottom: 0; /* Remove bottom margin for smaller screens */
+    }
+
+    .main-image {
+        height: 160px; /* Allow height to adjust based on content */
+        width: 200px; /* Ensure image fills its container */
+        max-width: 300px; /* Limit the width of the main image on smaller screens */
+        margin: 0 auto; /* Center the main image horizontally */
+    }
+
+    .thumbnail-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-template-rows: repeat(3, auto); /* 3 rows */
+        padding: 20px; /* Add padding for spacing */
+        justify-items: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+    }
+
+    .thumbnail {
+        width: 130px; /* Occupy full width of the column */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    /* Watermark adjustments for mobile */
+    #watermark {
+        width: 100px; /* Reduce size for mobile */
+        top: 100px; /* Adjust positioning */
+        right: 5px; /* Adjust positioning */
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #a9eaf5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#label-section {
+    width: 100%; /* Take full width on smaller screens */
+    margin: 15px 0; /* Adjusted margin for smaller screens */
+}
+
+.squares-container {
+    width: 100%;
+    margin-right: 0; /* Remove right margin on smaller screens */
+    top: initial; /* Remove top position */
+}
+
+.square,
+.square1 {
+    height: auto; /* Adjust height based on content */
+}
+
+}

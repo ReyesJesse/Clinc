@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>MontDent</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#"><img src="logo.webp" width="500" alt="Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Submenú 01</a></li>
+                        <li><a href="#">Submenú 02</a></li>
+                        <li><a href="#">Submenú 03</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Invisalign?</a></li>
+                <li><a href="#">Quiénes Somos?</a></li>
+                <li><a href="#">Tratamientos</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Submenú 01</a></li>
+                        <li><a href="#">Submenú 02</a></li>
+                        <li><a href="#">Submenú 03</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Sucursales</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Bolsa de Trabajo</a></li>
+                <li><a href="#">Contacto</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Submenú 01</a></li>
+                        <li><a href="#">Submenú 02</a></li>
+                        <li><a href="#">Submenú 03</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <div class="carousel-background">
+        <section class="carousel">
+            <div class="main-slide">
+                <img src="/carouselimage1.webp" alt="Main Slide" class="main-image">
+                <img id="watermark" src="/logocopy.webp" width="200px" alt="">
+    
+            </div>
+            <div class="thumbnail-container">
+                <div class="slide">
+                    <img src="carouselimage1.webp" loading="lazy" alt="Thumbnail 1" class="thumbnail">
+                </div>
+                <div class="slide">
+                    <img src="carouselimage2.webp" loading="lazy" alt="Thumbnail 2" class="thumbnail">
+                </div>
+                <div class="slide">
+                    <img src="carouselimage3.webp" loading="lazy" alt="Thumbnail 3" class="thumbnail">
+                </div>
+                <div class="slide">
+                    <img src="carouselimage4.webp" loading="lazy" alt="Thumbnail 4" class="thumbnail">
+                </div>
+                <div class="slide">
+                    <img src="carouselimage5.webp" loading="lazy" alt="Thumbnail 5" class="thumbnail">
+                </div>
+                <div class="slide-last">
+                    <img src="carouselimage6.webp" loading="lazy" alt="Thumbnail 6" class="thumbnail">
+                </div>
+                <div class="slide">
+                    <img src="carouselimage3.webp" loading="lazy" alt="Thumbnail 3" class="thumbnail">
+                </div>
+                <div class="slide">
+                    <img src="carouselimage4.webp" loading="lazy" alt="Thumbnail 4" class="thumbnail">
+                </div>
+                <div class="slide">
+                    <img src="carouselimage5.webp" loading="lazy" alt="Thumbnail 5" class="thumbnail">
+                </div>
+                <div class="slide-last">
+                    <img src="carouselimage6.webp" loading="lazy" alt="Thumbnail 6" class="thumbnail">
+                </div>
+            </div>
+        </section>
+    </div>
+<div id="secondSection">
+    <div class="company-description">
+        <p>MontDent inversión salud Buco-Dental</p>
+        <p>Bienvenidos a Montdent
+            En Montdent, cuidamos de su sonrisa con dedicación y profesionalismo. Con 20 años de experiencia, ofrecemos
+            servicios de ortodoncia, odontopediatría y rehabilitación dental, utilizando tecnología de vanguardia para
+            asegurarle el mejor tratamiento.
+            Nuestro compromiso es su bienestar, brindándole una atención personalizada en un ambiente cómodo y
+            acogedor. ¡Visítenos y descubra por qué Montdent es su mejor opción para un cuidado dental integral!</p>
+    </div>
+    
+    <!--Label/form section-->
+<div class="whole-container">
+        <section id="label-section">
+            <div class="company-description">
+                <p>¡Estamos deseando conocerte! Agenda una cita con nosotros y obtén tu primera
+                    valoración ¡GRATIS! Si necesitas más información, simplemente selecciona la opción de
+                    Comunicar Haciendo clic en la flecha del primer recuadro, completa tus datos y
+                    estaremos encantados de ponernos en contacto contigo.</p>
+            </div>
+            <div class="entreat-de-mas">
+                <h2>Enterate de mas!</h2>
+                <div class="social-icons">
+                    <a href="https://wa.me/your-number" target="_blank" class="whatsapp-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/your-profile" target="_blank" class="instagram-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@your-profile" target="_blank" class="tiktok-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.youtube.com/c/your-channel" target="_blank" class="youtube-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <form class="appointment-form">
+                <div class="form-group">
+                    <label for="nombre-completo">Nombre Completo</label>
+                    <input type="text" id="nombre-completo" name="nombre-completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="contacto">Seleccionar toma de contacto</label>
+                    <select id="contacto" name="contacto">
+                        <option value="redes-sociales">Redes Sociales</option>
+                        <option value="pagina-web">Página Web</option>
+                        <option value="volante">Volante</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="clinica">Seleccionar Clínica</label>
+                    <select id="clinica" name="clinica">
+                        <option value="loma-bella">Loma Bella</option>
+                        <option value="tlaxcala">Tlaxcala</option>
+                        <option value="apizaco">Apizaco</option>
+                        <option value="bosques">Bosques</option>
+                        <option value="la-paz">La Paz</option>
+                        <option value="san-martin">San Martín</option>
+                        <option value="veracruz">Veracruz</option>
+                        <option value="corales">Corales</option>
+                        <option value="guadalajara">Guadalajara</option>
+                        <option value="xalapa">Xalapa</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="correo-electronico">Correo Electrónico</label>
+                    <input type="email" id="correo-electronico" name="correo-electronico" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero-telefono">Número de Teléfono</label>
+                    <input type="tel" id="numero-telefono" name="numero-telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="motivo-visita">Motivo de su visita</label>
+                    <textarea id="motivo-visita" name="motivo-visita" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fecha-cita">Agendar Cita</label>
+                    <input type="date" id="fecha-cita" name="fecha-cita" required>
+                </div>
+                <button type="submit">Enviar</button>
+             </form>
+         </section>
+         
+  <div class="squares-container">
+    <div>
+        <h1>UrgentCare or ER</h1>
+        <div class="square">ALorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum porttitor purus, quis interdum ex cursus non. Integer at dignissim nulla. Morbi consectetur, ante ac eleifend vulputate, mauris tortor pellentesque ante, non vulputate mi tortor ut nunc. Pellentesque suscipit ut diam a aliquet.</div>
+    </div>
+   
+    <h1>Accepted Insurance</h1>
+        <div class="square">ALorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum porttitor purus, quis interdum ex cursus non. Integer at dignissim nulla. Morbi consectetur, ante ac eleifend vulputate, mauris tortor pellentesque ante, non vulputate mi tortor ut nunc. Pellentesque suscipit ut diam a aliquet.</div>
+    </div>
+
+</div>
+
+   
+   
+
+    <script src="script.js"></script>
+</body>
+</html>
