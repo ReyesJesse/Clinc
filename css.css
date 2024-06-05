@@ -644,9 +644,7 @@ font-weight: 100;
         text-align: center;
     }
 
-    .carousel {
-        padding: 20px; /* Reduce padding for smaller screens */
-    }
+   
 
     .main-slide {
         height: auto; /* Allow height to adjust based on content */
